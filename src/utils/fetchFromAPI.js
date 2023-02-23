@@ -20,7 +20,7 @@ axios
 	});
 
 //dymanic endpoints URL from API - example: http://baseurl/videoSearch
-export const fetchfromAPI = async (url) => {
+export const fetchFromAPI = async (url) => {
 	const { data } = await axios.get(`${BASE_URL}/${url}`, options);
 	return data;
 };
