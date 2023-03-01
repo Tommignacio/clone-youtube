@@ -86,3 +86,11 @@ a {
     width:200px;
   }
 }
+
+.dark{
+  background-color: #000;
+}
+
+.light{
+  background-color: #fff;
+}
