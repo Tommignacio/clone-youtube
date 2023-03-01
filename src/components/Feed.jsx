@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Sidebar, Videos } from "./";
+import ThemeContext from "../context/ThemeContext";
 const Feed = () => {
 	const [selectedCategory, setSelectedCategory] = useState("New");
 	const [videos, setVideos] = useState([]);
+	const { theme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		//calling fetch and providing url
@@ -14,7 +16,12 @@ const Feed = () => {
 	}, [selectedCategory]);
 
 	return (
-		<Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+		<Stack
+			className={theme}
+			sx={{
+				flexDirection: { sx: "column", md: "row" },
+			}}
+		>
 			<Box
 				sx={{
 					height: { sx: "auto", md: "92vh" },
