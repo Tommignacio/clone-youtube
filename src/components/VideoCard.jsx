@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -11,6 +11,7 @@ import {
 	demoChannelTitle,
 } from "../utils/constants";
 import { red } from "@mui/material/colors";
+import ThemeContext from "../context/ThemeContext";
 
 //rendering the videos
 const VideoCard = ({
@@ -19,12 +20,14 @@ const VideoCard = ({
 		snippet,
 	},
 }) => {
+	const { theme } = useContext(ThemeContext);
 	return (
 		<Card
 			sx={{
 				width: { xs: "100%", sm: "358px", md: "320px" },
 				boxShadow: "none",
 				borderRadius: 0,
+				backgroundColor: "transparent",
 			}}
 		>
 			<Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
@@ -39,14 +42,19 @@ const VideoCard = ({
 							md: "320px",
 						},
 						height: 180,
+						borderRadius: "15px",
 					}}
 				/>
 			</Link>
 			{/* rendering title video and channel name */}
-			<CardContent sx={{ backgroundColor: "#1e1e1e", height: "106px" }}>
+			<CardContent className={theme} sx={{ height: "106px" }}>
 				{/* showing video name (reduced) */}
 				<Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-					<Typography variant="subtitle1" fontWeight="bold" color="#FFF">
+					<Typography
+						variant="subtitle1"
+						fontWeight="bold"
+						color={theme === "light" ? "black" : "white"}
+					>
 						{snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}
 					</Typography>
 				</Link>

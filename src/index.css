@@ -89,8 +89,10 @@ a {
 
 .dark{
   background-color: #000;
+  color: #fff !important;
 }
 
 .light{
   background-color: #fff;
+  color: #000;
 }
