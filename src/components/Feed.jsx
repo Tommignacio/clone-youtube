@@ -3,10 +3,13 @@ import { Box, Stack, Typography } from "@mui/material";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Sidebar, Videos } from "./";
 import ThemeContext from "../context/ThemeContext";
+import { useParams } from "react-router-dom";
 const Feed = () => {
 	const [selectedCategory, setSelectedCategory] = useState("New");
 	const [videos, setVideos] = useState([]);
 	const { theme } = useContext(ThemeContext);
+	const { name } = useParams();
+	console.log(name);
 
 	useEffect(() => {
 		//calling fetch and providing url

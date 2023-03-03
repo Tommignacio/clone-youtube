@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 
 import { categories } from "../utils/constants";
 import ThemeContext from "../context/ThemeContext";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
 	const { theme } = useContext(ThemeContext);
@@ -17,11 +18,15 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
 			}}
 		>
 			{categories.map((category) => (
-				<button
+				<Link
+					to={`/${category.name}`}
 					className={`category-btn ${theme}`}
-					onClick={() => setSelectedCategory(category.name)}
+					onClick={() => {
+						setSelectedCategory(category.name);
+					}}
 					style={{
 						background: category.name === selectedCategory && "#FC1503",
+						fontFamily: "system-ui",
 					}}
 					key={category.name}
 				>
@@ -40,7 +45,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
 					>
 						{category.name}
 					</span>
-				</button>
+				</Link>
 			))}
 		</Stack>
 	);

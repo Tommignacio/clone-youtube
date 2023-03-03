@@ -10,7 +10,6 @@ import {
 	demoChannelUrl,
 	demoChannelTitle,
 } from "../utils/constants";
-import { red } from "@mui/material/colors";
 import ThemeContext from "../context/ThemeContext";
 
 //rendering the videos
