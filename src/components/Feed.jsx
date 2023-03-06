@@ -4,12 +4,15 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Sidebar, Videos } from "./";
 import ThemeContext from "../context/ThemeContext";
 import { useParams } from "react-router-dom";
+import BurguerContext from "../context/BurguerContext";
 const Feed = () => {
-	const [selectedCategory, setSelectedCategory] = useState("New");
+	const { name } = useParams();
+	const [selectedCategory, setSelectedCategory] = useState(
+		!name ? "New" : name
+	);
 	const [videos, setVideos] = useState([]);
 	const { theme } = useContext(ThemeContext);
-	const { name } = useParams();
-	console.log(name);
+	const { closeMenu } = useContext(BurguerContext);
 
 	useEffect(() => {
 		//calling fetch and providing url
@@ -26,10 +29,11 @@ const Feed = () => {
 			}}
 		>
 			<Box
+				className={!closeMenu ? "sidebar" : "sidebar active"}
 				sx={{
 					height: { sx: "auto", md: "92vh" },
 					borderRight: "1px solid #3d3d3d",
-					px: { sx: 0, md: 2 },
+					px: { xs: 0, md: 2 },
 				}}
 			>
 				<Sidebar

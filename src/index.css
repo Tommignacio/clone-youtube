@@ -96,3 +96,71 @@ a {
   background-color: #fff;
   color: #000;
 }
+
+.sidebar{
+  width: auto;
+}
+
+@media (min-width: 0px) {
+  .sidebar.active {
+    width: auto;
+  }
+}
+@media (min-width: 900px) {
+  .sidebar.active {
+    width: 3.3rem;
+  }
+}
+
+.burgerContainer{
+  content: "";
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  border-radius: 2em;
+  z-index: 1 ;
+}
+
+/* give the functionality */
+.burgerTrigger{
+content: "";
+width: 35px;
+height: 35px;
+background-color: #FC1503;
+cursor: pointer;
+z-index: 6;
+opacity: 0;
+position: relative;
+}
+.burguerMenu{
+content: "";
+background-color: #fff;
+position: relative;
+z-index: 1;
+width: 20px;
+height: 3px;
+border-radius: 2rem;
+bottom: calc(35px/2);
+left: 0.45rem;
+}
+.burguerMenu::after{
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  border-radius: 2rem;
+  top: 0.4rem;
+  /* transform: translateY(-0.4rem) rotate(45deg) ; */
+}
+.burguerMenu::before{
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  border-radius: 2rem;
+  top: -0.4rem;
+  /* transform: translateY(0.4rem) rotate(-45deg) ; */
+
+}

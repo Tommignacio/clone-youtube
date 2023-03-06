@@ -4,11 +4,12 @@ import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import { Videos } from "./";
+import { Sidebar, Videos } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 const VideoDetail = () => {
 	const [videoDetail, setVideoDetail] = useState(null);
 	const [videos, setVideos] = useState(null);
+	const [selectedCategory, setSelectedCategory] = useState("New");
 	//saving the id comming from url `/video/${videoId}` in component VideoCard link
 	const { id } = useParams();
 
@@ -36,6 +37,10 @@ const VideoDetail = () => {
 		<Box minHeight="95vh">
 			{/* rendering current video */}
 			<Stack direction={{ xs: "column", md: "row" }}>
+				<Sidebar
+					selectedCategory={selectedCategory}
+					setSelectedCategory={setSelectedCategory}
+				/>
 				<Box flex={1}>
 					<Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
 						{/* video */}

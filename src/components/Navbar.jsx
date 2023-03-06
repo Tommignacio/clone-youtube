@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import { logo } from "../utils/constants";
@@ -9,9 +9,11 @@ import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 
 import { styled } from "@mui/material/styles";
+import BurguerContext from "../context/BurguerContext";
 
 const Navbar = () => {
 	const { theme, handleTheme, checked } = useContext(ThemeContext);
+	const { closeMenu, handleCloseMenu } = useContext(BurguerContext);
 
 	const MaterialUISwitch = styled(Switch)(() => ({
 		width: 62,
@@ -72,9 +74,28 @@ const Navbar = () => {
 				justifyContent: "space-between",
 			}}
 		>
-			<Link to="/" style={{ display: "flex", alignItems: "center" }}>
-				<img src={logo} alt="logo" height={45} />
-			</Link>
+			<Box
+				sx={{
+					display: "flex",
+					width: "6rem",
+					alignItems: "center",
+					justifyContent: "space-evenly",
+				}}
+			>
+				<Box
+					className="burgerContainer"
+					sx={{ display: { xs: "none", md: "block" } }}
+				>
+					<div
+						className="burgerTrigger"
+						onClick={() => handleCloseMenu()}
+					></div>
+					<div className="burguerMenu"></div>
+				</Box>
+				<Link to="/" style={{ display: "flex", alignItems: "center" }}>
+					<img src={logo} alt="logo" height={45} />
+				</Link>
+			</Box>
 			<SearchBar />
 			{/* <Switch checked={checked} color="default" onChange={handleTheme} /> */}
 			<MaterialUISwitch checked={checked} onChange={handleTheme} />
