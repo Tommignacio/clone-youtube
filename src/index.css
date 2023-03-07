@@ -35,7 +35,7 @@ a {
 }
 
 .react-player {
-  height: 70vh !important;
+  height: 65vh !important;
   width: 100% !important;
 }
 
@@ -68,7 +68,7 @@ a {
   }
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
   .copyright{
     display:none !important;
   }
@@ -111,6 +111,12 @@ a {
     width: 3.3rem;
   }
 }
+@media (min-width: 900px) {
+  .sidebar.activeV2 {
+    width:0;
+    padding: 0;
+  }
+}
 
 .burgerContainer{
   content: "";
@@ -143,6 +149,10 @@ border-radius: 2rem;
 bottom: calc(35px/2);
 left: 0.45rem;
 }
+.light .burguerMenu{
+  background-color: #000;
+
+  }
 .burguerMenu::after{
   content: "";
   background-color: #fff;
@@ -151,7 +161,9 @@ left: 0.45rem;
   height: 3px;
   border-radius: 2rem;
   top: 0.4rem;
-  /* transform: translateY(-0.4rem) rotate(45deg) ; */
+}
+.light .burguerMenu::after{
+  background-color: #000;
 }
 .burguerMenu::before{
   content: "";
@@ -161,6 +173,9 @@ left: 0.45rem;
   height: 3px;
   border-radius: 2rem;
   top: -0.4rem;
-  /* transform: translateY(0.4rem) rotate(-45deg) ; */
+
+}
+.light .burguerMenu::before{
+  background-color:#000;
 
 }

@@ -72,6 +72,7 @@ const Navbar = () => {
 				position: "sticky",
 				top: 0,
 				justifyContent: "space-between",
+				zIndex: 10,
 			}}
 		>
 			<Box
@@ -90,7 +91,7 @@ const Navbar = () => {
 						className="burgerTrigger"
 						onClick={() => handleCloseMenu()}
 					></div>
-					<div className="burguerMenu"></div>
+					<div className={`burguerMenu ${theme}`}></div>
 				</Box>
 				<Link to="/" style={{ display: "flex", alignItems: "center" }}>
 					<img src={logo} alt="logo" height={45} />
